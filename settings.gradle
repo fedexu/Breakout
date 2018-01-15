@@ -1,0 +1,4 @@
+include ':breakout'
+
+include ':gameEngine'
+project(':gameEngine').projectDir = new File(settingsDir , '../AndroidGameEngine/gameEngine')
