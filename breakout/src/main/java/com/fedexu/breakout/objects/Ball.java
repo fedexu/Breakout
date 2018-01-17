@@ -4,6 +4,7 @@ package com.fedexu.breakout.objects;
 import android.graphics.Point;
 import android.view.MotionEvent;
 
+import com.fedexu.androidgameengine.EngineUtils;
 import com.fedexu.androidgameengine.GameData;
 import com.fedexu.androidgameengine.manager.ColliderManager;
 import com.fedexu.androidgameengine.manager.SideCollision;
@@ -73,12 +74,12 @@ public class Ball extends GameObject {
         SideCollision collisionOn = ColliderManager.detectSideCollision(this, collideObject);
 
         if(collisionOn == SideCollision.TOP_COLLISION || collisionOn == SideCollision.BOTTOM_COLLISION) {
-            this.setDirectionAngle(this.bounceTopBottom());
+            this.setDirectionAngle(EngineUtils.bounceTopBottom(this.getDirectionAngle()));
             this.setCurrentAnimation("TOP_BOTTOM");
             this.getCurrentAnimation().setAnimationDurationTime(400);
         }
         else {
-            this.setDirectionAngle(this.bounceLeftRight());
+            this.setDirectionAngle(EngineUtils.bounceLeftRight(this.getDirectionAngle()));
             this.setCurrentAnimation("LEFT_RIGHT");
             this.getCurrentAnimation().setAnimationDurationTime(400);
         }
