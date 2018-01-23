@@ -26,6 +26,8 @@ public class Brick extends GameObject {
 
         this.updateBoundingBox();
 
+        this.setImmovable(true);
+
         timedDeath = 0;
     }
 
@@ -33,6 +35,7 @@ public class Brick extends GameObject {
         super(b);
         timedDeath = 0;
         this.startCenter = this.getCenter();
+        this.setImmovable(true);
     }
 
     public void reset(){
@@ -41,6 +44,7 @@ public class Brick extends GameObject {
         this.setUntouchable(false);
         this.timedDeath = 0;
         this.setCurrentAnimation("IDLE");
+        this.setImmovable(true);
     }
 
     @Override
@@ -52,6 +56,7 @@ public class Brick extends GameObject {
             this.getCurrentAnimation().setFrameCount(6);
             this.setDirectionAngle(270);
             this.setSpeed(80);
+            this.setImmovable(false);
         }
 
         if(timedDeath != 0 && timedDeath < 0){

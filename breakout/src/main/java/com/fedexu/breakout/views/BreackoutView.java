@@ -143,10 +143,14 @@ public class BreackoutView extends GameView {
         lives = 3;
         ball.setLives(3);
         ball.setScore(0);
+        ball.setImmovable(true);
+        ball.setSpeed(100);
+        ball.setAcceleration(100);
     }
     @Override
     public void onTouch(MotionEvent motionEvent) {
         setGameLoopOn(true);
+        ball.setImmovable(false);
     }
 
     @Override

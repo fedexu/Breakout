@@ -32,7 +32,11 @@ public class Ball extends GameObject {
 
         this.getPolygon().addPoint(0, radius);
 
-        this.setSpeed(450);
+        this.setSpeed(100);
+
+        this.setAcceleration(100);
+
+        this.setImmovable(true);
 
         this.setDirectionAngle(45);
 
@@ -45,9 +49,13 @@ public class Ball extends GameObject {
     public Ball(BasicObject b){
         super(b);
 
-        this.setSpeed(450);
+        this.setSpeed(100);
+
+        this.setAcceleration(100);
 
         this.setDirectionAngle(45);
+
+        this.setImmovable(true);
 
         this.score = 0;
 
@@ -58,12 +66,14 @@ public class Ball extends GameObject {
 
     public void reset(){
         this.translate(startCenter.x, startCenter.y);
+        this.setDirectionAngle(45);
     }
 
 
     @Override
     public void update(GameData gameData) {
-
+        if(this.getSpeed() > 500)
+            this.setAcceleration(0);
     }
 
     @Override
