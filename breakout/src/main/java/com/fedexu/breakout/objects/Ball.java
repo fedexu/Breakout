@@ -61,6 +61,8 @@ public class Ball extends GameObject {
 
         this.lives = 3;
 
+        this.setSpinSpeed(10);
+
         this.startCenter = this.getCenter();
     }
 
